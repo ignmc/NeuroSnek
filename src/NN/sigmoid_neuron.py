@@ -34,4 +34,7 @@ class SigmoidNeuron:
     def adjust_bias_using_learning_rate(self, lr):
         self.bias += lr * self.delta
 
-
+    def sequence(self):
+        out = [self.bias]
+        out.extend([w for w in self.weights])
+        return out

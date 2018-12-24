@@ -46,3 +46,6 @@ class NeuralLayer:
 
         if self.next_layer is not None:
             self.next_layer.update_weights_and_bias(inputs, lr)
+
+    def sequence(self):
+        return [neuron.sequence() for neuron in self.neurons]

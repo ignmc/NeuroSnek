@@ -1,8 +1,8 @@
 from argparse import ArgumentError
 import random
 
-from NN.neural_layer import NeuralLayer
-from NN.sigmoid_neuron import SigmoidNeuron
+from src.NN.neural_layer import NeuralLayer
+from src.NN.sigmoid_neuron import SigmoidNeuron
 
 
 class NeuralNetwork:
@@ -38,7 +38,7 @@ class NeuralNetwork:
                 temp_layer = first_layer
                 while temp_layer.next_layer is not None:  # Find the output layer
                     temp_layer = temp_layer.next_layer
-                self.last_layer = temp_layer
+                self.output_layer = temp_layer
         else:
             # All the layers were supplied. Let's connect them in the same order they are listed
             self.first_layer, self.output_layer = connect_layers(layers)
@@ -56,3 +56,11 @@ class NeuralNetwork:
         outputs = self.feed(inputs)
         self.backward_propagate_error(expected_outputs)
         self.update_weights(inputs, learning_rate)
+
+    def sequence(self):
+        out = []
+        pointer_layer = self.first_layer
+        while pointer_layer is not None:
+            out.extend(pointer_layer.sequence())
+            pointer_layer = pointer_layer.next_layer
+        return out
