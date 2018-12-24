@@ -1,13 +1,11 @@
 import random
 
-from src.individual import Individual
+from src.GA.individual import Individual
 
 
 class GA:
-    def __init__(self, p_size, n_size, vocabulary, fit, mutation_prob, **kwargs):
+    def __init__(self, p_size, fit, mutation_prob, **kwargs):
         self.p_size = p_size
-        self.n_size = n_size
-        self.vocabulary = vocabulary
         self.population = []
         self.mating_pool = []
         self.fit = fit
