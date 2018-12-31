@@ -30,7 +30,7 @@ from pygame.locals import *
 import random
 
 # ---------- constants ---------- #
-SCREENSIZE = (400, 300)
+SCREENSIZE = (300, 600)
 SCREENRECT = pygame.Rect(0, 0, SCREENSIZE[0], SCREENSIZE[1])
 CAPTION = 'MiniSnake'
 FPS = 20
@@ -206,7 +206,7 @@ def play(neural_controller):
 	while not quit:
 		# events
 		# TODO notify probably here
-		neural_controller.feed(snek=snake, apple=currentfood, board_size=SCREENSIZE)
+		neural_controller.feed(snek=snake, apple=currentfood, board_size=SCREENSIZE, tile_size=TILE_SIZE)
 
 		for event in pygame.event.get():
 			if event.type == QUIT:
