@@ -4,8 +4,9 @@ from src.GA.individual import Individual
 
 
 class GA:
-    def __init__(self, p_size, fit, mutation_prob, **kwargs):
+    def __init__(self, p_size, network_shape, fit, mutation_prob, **kwargs):
         self.p_size = p_size
+        self.network_shape = network_shape
         self.population = []
         self.mating_pool = []
         self.fit = fit
@@ -14,17 +15,19 @@ class GA:
 
     def get_initial_population(self):
         for _ in range(self.p_size):
-            ind = Individual(self.n_size, self.vocabulary)
-            ind.randomize()
+            ind = Individual.get_random(self.network_shape)
             self.population.append(ind)
 
     def tournament_selection(self, tournament_size):
         best = None
+        best_fitness = None
         pop_size = len(self.population)
         for _ in range(tournament_size):
             candidate = self.population[random.randrange(pop_size)]
-            if not best or self.fit(candidate, **self.fit_kwargs) > self.fit(best, **self.fit_kwargs):
+            candidate_fitness = self.fit(candidate, **self.fit_kwargs)
+            if not best or candidate_fitness > best_fitness:
                 best = candidate
+                best_fitness = candidate_fitness
         return best
 
     def build_mating_pool(self, tournament_size):
