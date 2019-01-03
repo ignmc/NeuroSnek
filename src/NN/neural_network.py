@@ -64,3 +64,21 @@ class NeuralNetwork:
             out.extend(pointer_layer.sequence())
             pointer_layer = pointer_layer.next_layer
         return out
+
+    @staticmethod
+    def from_sequence(sequence, size):
+        if sum(size[1:]) != len(sequence):
+            raise ArgumentError
+        iterator = iter(sequence)
+        layers = []
+        for i in range(1, len(size)):
+            layer_size = size[i]
+            neurons = []
+            for j in range(layer_size):
+                neuron_values = next(iterator)
+                bias = neuron_values[0]
+                weights = neuron_values[1:]
+                neurons.append(SigmoidNeuron(weights, bias))
+            layers.append(NeuralLayer(neurons))
+
+        return NeuralNetwork(layers=layers)
