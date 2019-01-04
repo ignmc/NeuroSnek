@@ -33,7 +33,7 @@ import random
 SCREENSIZE = (200, 200)
 SCREENRECT = pygame.Rect(0, 0, SCREENSIZE[0], SCREENSIZE[1])
 CAPTION = 'MiniSnake'
-FPS = 20
+FPS = 2000
 
 START_TILE = (5, 5)
 START_SEGMENTS = 4
@@ -331,7 +331,7 @@ def play(neural_controller):
         pygame.display.update(dirty)
 
         # waiting
-        clock.tick(5000)
+        clock.tick(FPS)
 
     # game over
     if lose == True:
