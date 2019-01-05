@@ -17,7 +17,7 @@ ga = GA(100, NETWORK_SHAPE, fit, 0.01)
 ga.get_initial_population()
 avg_fitness = []
 start = datetime.datetime.now()
-delta = datetime.timedelta(hours=5)
+delta = datetime.timedelta(hours=7)
 end = start + delta
 while datetime.datetime.now() < end:
     ga.build_mating_pool(20)
