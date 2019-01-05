@@ -23,3 +23,4 @@ if __name__ == "__main__":
         ga.reproduction()
 
     plt.plot(range(1, GENERATIONS), avg_fitness)
+    plt.show()
