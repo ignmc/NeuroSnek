@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 
 
 NETWORK_SHAPE = (6, 7, 5, 3)
-GENERATIONS = 3
+GENERATIONS = 20
 POPULATION_SIZE = 100
 MUTATION_PROB = 0.01
 TOURNAMENT_SIZE = 20
