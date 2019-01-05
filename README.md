@@ -1,4 +1,4 @@
-# NeuroSnake
+# NeuroSnek
 
 ## Cómo correr
 El programa se ejecuta desde el archivo ```main.py```. En él también se pueden ajustar los parámetros usados. Cambie la veriable ```GENERATIONS``` de este archivo para especificar cuántas generaciones se cruzarán, el recomendado es 60 pero puede tomar mucho tiempo.
@@ -9,4 +9,4 @@ Las dependencias utilizadas son matplotlib, pygame y sus dependencias respectiva
 
 Probado con python 3.6
 
-Este programa usa MiniSnake http://projects.pixelatedawesome.com/minisnake/
+Las redes juegan MiniSnake http://projects.pixelatedawesome.com/minisnake/
